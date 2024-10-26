@@ -41,7 +41,7 @@ print(masked_cpf)
 The CNPJ format consists of 14 digits. Maskify will retain the first two and last two digits, masking the middle portion:
 
 ```python
-from maskify import mask_cnpj
+from maskify.masker import Masker
 
 cnpj = "12.345.678/0001-99"
 masked_cnpj = Masker.mask_cnpj(cnpj, "X")
@@ -55,7 +55,7 @@ print(masked_cnpj)
 The email masking function hides a portion of the local part of the email (before `@`), leaving the first and last characters visible:
 
 ```python
-from maskify import mask_email
+from maskify.masker import Masker
 
 email = "usuario@exemplo.com"
 masked_email = Masker.mask_email(email, "*")
@@ -69,7 +69,7 @@ print(masked_email)
 Maskify supports multiple credit card formats, including standard 16-digit cards, American Express (15 digits), and Diners Club (14 digits). It retains only the last four digits, masking the rest:
 
 ```python
-from maskify import mask_credit_card
+from maskify.masker import Masker
 
 credit_card = "1234 1234 1234 1234"
 masked_credit_card = Masker.mask_credit_card(credit_card, "*")
@@ -83,7 +83,7 @@ print(masked_card)
 Mobile phone numbers with 11 digits are masked to display only the area code, first digit, and last four digits:
 
 ```python
-from maskify import mask_mobile_phone
+from maskify.masker import Masker
 
 mobile_phone = "(11) 91234-5678"
 masked_mobile_phone = Masker.mask_mobile_phone(mobile_phone)
@@ -97,7 +97,7 @@ print(masked_phone)
 Residential phone numbers with 10 digits are masked to display only the area code, first two digits, and last four digits:
 
 ```python
-from maskify import mask_residential_phone
+from maskify.masker import Masker
 
 residential_phone = "(11) 1234-5678"
 masked_residential_phone = Masker.mask_residential_phone(residential_phone)
@@ -111,10 +111,10 @@ print(masked_phone)
 Maskify provides a general `mask` function to apply a mask to any string. Specify the start position, length of the mask, and masking character:
 
 ```python
-from maskify import mask
+from maskify.masker import Masker
 
 text = "1234567890"
-masked_text = mask(text, start_position=2, length=4)
+masked_text = Masker.mask(text, start_position=2, length=4)
 print(masked_text)  
 
 # Output: "12****7890"
