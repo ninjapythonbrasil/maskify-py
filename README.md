@@ -1,5 +1,9 @@
 # Maskify - Sensitive Data Masking Library for Python
 
+![PyPI - Version](https://img.shields.io/pypi/v/maskify-py?color=%23ffd43b)
+![PyPI - Downloads](https://img.shields.io/pypi/dm/maskify-py?color=%23ffd43b)
+
+
 **Maskify** is a lightweight, flexible library for Python, inspired by the [Maskify.Core](https://github.com/djesusnet/Maskify.Core) library for .NET. It helps developers securely mask sensitive data, such as Brazilian documents (CPF, CNPJ), emails, credit cards, and phone numbers. This library provides built-in masking for common data types, along with customizable masking options to ensure compliance with data protection regulations.
 
 ## Features
