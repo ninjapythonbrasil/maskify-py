@@ -30,8 +30,8 @@ The CPF format consists of 11 digits. Maskify will retain the last two digits an
 from maskify.masker import Masker
 
 cpf = "123.456.789-01"
-masked_cpf = Masker.mask_cpf(cpf, "X")
-print(masked_cpf)  
+masked_cpf = Masker.mask_cpf(cpf, "*")
+print("Output:", masked_cpf)  
 
 # Output: "123.***.**9-01"
 ```
@@ -44,13 +44,13 @@ The CNPJ format consists of 14 digits. Maskify will retain the first two and las
 from maskify.masker import Masker
 
 cnpj = "12.345.678/0001-99"
-masked_cnpj = Masker.mask_cnpj(cnpj, "X")
-print(masked_cnpj)  
+masked_cnpj = Masker.mask_cnpj(cnpj, "*")
+print("Output:", masked_cnpj)  
 
-# Output: "12.XXX.XXX/XX01-99"
+# Output: "12.***.***/**01-99"
 ```
 
-### 3. Masking Email
+### 3. Masking email
 
 The email masking function hides a portion of the local part of the email (before `@`), leaving the first and last characters visible:
 
@@ -59,12 +59,12 @@ from maskify.masker import Masker
 
 email = "usuario@exemplo.com"
 masked_email = Masker.mask_email(email, "*")
-print(masked_email)  
+print("Output:", masked_email)  
 
 # Output: "u*****o@exemplo.com"
 ```
 
-### 4. Masking Credit Card
+### 4. Masking credit card
 
 Maskify supports multiple credit card formats, including standard 16-digit cards, American Express (15 digits), and Diners Club (14 digits). It retains only the last four digits, masking the rest:
 
@@ -73,12 +73,12 @@ from maskify.masker import Masker
 
 credit_card = "1234 1234 1234 1234"
 masked_credit_card = Masker.mask_credit_card(credit_card, "*")
-print(masked_card)  
+print("Output:", masked_credit_card)  
 
 # Output: "**** **** **** 1234"
 ```
 
-### 5. Masking Mobile Phone Numbers
+### 5. Masking mobile phone numbers
 
 Mobile phone numbers with 11 digits are masked to display only the area code, first digit, and last four digits:
 
@@ -87,12 +87,12 @@ from maskify.masker import Masker
 
 mobile_phone = "(11) 91234-5678"
 masked_mobile_phone = Masker.mask_mobile_phone(mobile_phone)
-print(masked_phone)  
+print("Output:", masked_mobile_phone)  
 
 # Output: "(11) *****-5678"
 ```
 
-### 6. Masking Residential Phone Numbers
+### 6. Masking residential phone numbers
 
 Residential phone numbers with 10 digits are masked to display only the area code, first two digits, and last four digits:
 
@@ -101,7 +101,7 @@ from maskify.masker import Masker
 
 residential_phone = "(11) 1234-5678"
 masked_residential_phone = Masker.mask_residential_phone(residential_phone)
-print(masked_phone)  
+print("Output:", masked_residential_phone)  
 
 # Output: "(11) ****-5678"
 ```
@@ -113,11 +113,11 @@ Maskify provides a general `mask` function to apply a mask to any string. Specif
 ```python
 from maskify.masker import Masker
 
-text = "1234567890"
-masked_text = Masker.mask(text, start_position=2, length=4)
-print(masked_text)  
+text = "Confidential"
+masked_text = Masker.mask(text, start_position=2, length=8)
+print("Output:", masked_text)  
 
-# Output: "12****7890"
+# Output: "Co********al"
 ```
 
 ## Error Handling
